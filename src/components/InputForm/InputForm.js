@@ -2,10 +2,12 @@ import { Alert, Button, Label, TextInput } from "flowbite-react";
 import './InputForm.css';
 import { useState } from "react";
 import { HiInformationCircle } from "react-icons/hi";
+import { useNavigate } from 'react-router-dom';
 
 function InputForm() {
     const [keyword, setKeyword] = useState('');
     const [emptyAlert, setEmptyAlert] = useState(false);
+    const navigate = useNavigate();
 
     const searchBooks = (event) => {
         event.preventDefault();
@@ -18,6 +20,7 @@ function InputForm() {
         }
 
         console.log("Searching for books", keyword);
+        navigate('/output');
     }
 
     const handleTextChange = (event) => {
