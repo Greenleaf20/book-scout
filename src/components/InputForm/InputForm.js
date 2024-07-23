@@ -35,12 +35,12 @@ function InputForm({sendBooksList}) {
                         <div className="mb-2 block input-container">
                             <Label htmlFor="small" value="Enter keyword here" className="input-label"/>
                         </div>
-                        <TextInput id="small" type="text" sizing="sm"/>
+                        <TextInput id="small" type="text" sizing="sm" onChange={handleTextChange}/>
                     </div>
                     <Button gradientDuoTone="purpleToPink" type="submit" onClick={searchBooks} className="search-button w-20 justify-center">Search</Button>
                 </form>
             </div>
-            <div className='input-alert-container flex flex-col justify-center items-center absolute top-0 left-0 right-0 mt-4'>
+            <div className='input-alert-container flex flex-col justify-center items-center absolute mt-4'>
                 {
                     emptyAlert && <Alert color="failure" icon={HiInformationCircle} className="">
                         <span className="font-medium input-alert">Empty input!</span> Enter a keyword.
