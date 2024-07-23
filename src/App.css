@@ -1,5 +1,14 @@
-.App {
+/* .App {
     margin: 10px;
     border: 1px solid gainsboro;
     border-radius: 20px;
+} */
+
+.outer-card .justify-center {
+    justify-content: flex-start !important; 
 }
+
+/* .outer-card .output-screen {
+    display: flex;
+    align-items: flex-start;
+} */

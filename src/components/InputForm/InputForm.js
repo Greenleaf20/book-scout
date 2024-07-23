@@ -3,8 +3,9 @@ import './InputForm.css';
 import { useState } from "react";
 import { HiInformationCircle } from "react-icons/hi";
 import { useNavigate } from 'react-router-dom';
+import data from './sample-response.json';
 
-function InputForm() {
+function InputForm({sendBooksList}) {
     const [keyword, setKeyword] = useState('');
     const [emptyAlert, setEmptyAlert] = useState(false);
     const navigate = useNavigate();
@@ -18,8 +19,7 @@ function InputForm() {
             },5000);
             return;
         }
-
-        console.log("Searching for books", keyword);
+        sendBooksList(data.items);
         navigate('/output');
     }
 
@@ -28,22 +28,22 @@ function InputForm() {
     }
 
     return (
-        <div className="input-container">
-            <div className="flex justify-center items-start">
+        <div className="input-container relative mt-10">
+            <div className="flex justify-center items-center">
                 <form className="flex max-w-md flex-col gap-4">
                     <div>
                         <div className="mb-2 block input-container">
                             <Label htmlFor="small" value="Enter keyword here" className="input-label"/>
                         </div>
-                        <TextInput id="small" type="text" sizing="sm" onChange={handleTextChange}/>
+                        <TextInput id="small" type="text" sizing="sm"/>
                     </div>
-                    <Button gradientDuoTone="purpleToPink" type="submit" onClick={searchBooks}>Search</Button>
+                    <Button gradientDuoTone="purpleToPink" type="submit" onClick={searchBooks} className="search-button w-20 justify-center">Search</Button>
                 </form>
             </div>
-            <div className='input-alert-container flex justify-center items-center mt-4'>
+            <div className='input-alert-container flex flex-col justify-center items-center absolute top-0 left-0 right-0 mt-4'>
                 {
-                    emptyAlert && <Alert color="failure" icon={HiInformationCircle} className="max-w-md w-full">
-                        <span className="font-medium input-alert">Empty input!</span> Enter keyword to search for books.
+                    emptyAlert && <Alert color="failure" icon={HiInformationCircle} className="">
+                        <span className="font-medium input-alert">Empty input!</span> Enter a keyword.
                     </Alert>
                 }
             </div>

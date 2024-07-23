@@ -1,0 +1,11 @@
+button.go-home-button span {
+    padding: 8px 16px 8px 8px
+}
+
+.go-home-button svg {
+    margin-top: 2px;
+}
+
+.books-output-row {
+    margin-top: 10px;
+}
