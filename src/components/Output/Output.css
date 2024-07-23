@@ -9,3 +9,7 @@ button.go-home-button span {
 .books-output-row {
     margin-top: 10px;
 }
+
+.output-container {
+    margin: 50px;
+}
